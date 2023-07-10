@@ -16,11 +16,8 @@ extension PublishingStep {
     public static func tidyHTML(indentedBy indentation: Indentation.Kind? = nil) -> Self {
         .step(named: "Tidy HTML") { context in
             do {
-                let root = try context.folder(at: "")
-
-                let files = root.files.recursive
-
-                for file in files where file.extension == "html" {
+                let outputFolder = try context.outputFolder(at: "")
+                for file in outputFolder.files.recursive where file.extension == "html" {
                     let html = try file.readAsString()
 
                     let outputSettings = OutputSettings()

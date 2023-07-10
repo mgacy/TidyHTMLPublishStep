@@ -11,14 +11,14 @@ let package = Package(
     ...
     dependencies: [
         ...
-        .package(url: "https://github.com/john-mueller/TidyHTMLPublishStep", from: "0.1.0")
+        .package(url: "https://github.com/mgacy/TidyHTMLPublishStep", from: "0.1.1")
     ],
     targets: [
         .target(
             ...
             dependencies: [
                 ...
-                "TidyHTMLPublishStep"
+                .product(name: "TidyHTMLPublishStep", package: "tidyhtmlpublishstep")
             ]
         )
     ]
